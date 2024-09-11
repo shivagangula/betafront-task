@@ -1,0 +1,9 @@
+django
+psycopg2
+djangorestframework
+django_celery_results
+celery
+pytz
+Redis
+setuptools
+coverage

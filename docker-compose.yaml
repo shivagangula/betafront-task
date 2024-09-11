@@ -1,0 +1,55 @@
+services:
+  redis:
+    container_name: redis-server
+    image: redis:alpine
+    networks:
+      - pokemon-network
+  db:
+    container_name: db-server
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - pokemon-network
+  web:
+    container_name: backend-app
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    depends_on:
+      - db
+      - redis
+    networks:
+      - pokemon-network
+  celery:
+    container_name: celery-app
+    build: .
+    command: ["celery", "-A", "backend", "worker","--loglevel=error","--concurrency=2"]
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
+      - web
+      - db
+    networks:
+      - pokemon-network
+  
+networks:
+  pokemon-network:
