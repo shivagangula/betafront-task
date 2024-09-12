@@ -23,7 +23,7 @@ RUN pip install -r requirements.txt
 # Copy the project source code to the work directory
 COPY . /usr/src/app/
 
-COPY pokemon_data.csv /tmp/pokemon_data.csv
+COPY ./docs/pokemon_data.csv /tmp/pokemon_data.csv
 
 # Set executable permission for the entrypoint.sh file
 RUN chmod +x /usr/src/app/entrypoint.sh

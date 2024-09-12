@@ -5,6 +5,7 @@ from .models import Pokemon, Battle
 from .serializers import PokemonSerializer, BattleSerializer
 from .tasks import battle_simulator_task
 import uuid
+from django.shortcuts import render
 
 
 import logging
@@ -54,3 +55,8 @@ class BattleStatusAPIView(APIView):
         except Battle.DoesNotExist as e:
             logger.error(e)
             return Response({"status": "BATTLE_NOI_FOUND"}, status=status.HTTP_404_NOT_FOUND)
+
+
+def homepage(request):
+    print(request.get_host())
+    return render(request, 'pokemon/homepage.html')

@@ -7,3 +7,4 @@ pytz
 Redis
 setuptools
 coverage
+django-cors-headers

@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "3b794d3f-eaa8-42a7-bcaa-63dd89938e0d",
+		"name": "Betafront",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "5385422",
+		"_collection_link": "https://interstellar-moon-511678.postman.co/workspace/Sainma~7176c974-1e24-45ff-8084-155d6d50e44b/collection/5385422-3b794d3f-eaa8-42a7-bcaa-63dd89938e0d?action=share&source=collection_link&creator=5385422"
+	},
+	"item": [
+		{
+			"name": "Pokemon List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:8000/api/v1/pokemon/"
+			},
+			"response": []
+		},
+		{
+			"name": "Battles History",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:8000/api/v1/pokemon/battle"
+			},
+			"response": []
+		},
+		{
+			"name": "Battle Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:8000/api/v1/pokemon/battle/62582f63-7cb0-4d69-b68a-4e06668488ba/"
+			},
+			"response": []
+		},
+		{
+			"name": "Start Pokemon Battle",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"pokemon_a\":\"Nidoran\",\n   \"pokemon_b\" : \"Sandslash\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/v1/pokemon/battle/start/"
+			},
+			"response": []
+		}
+	]
+}

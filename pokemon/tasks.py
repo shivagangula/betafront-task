@@ -77,7 +77,8 @@ class BattleSimulator:
                 "wonByMargin": self.won_by_margin
             }
         except Exception as e:
-            logger.error(e)
+            import traceback
+            print(traceback.format_exc())
             if self.battle:
                 self.battle.status = "BATTLE_FAILED"
                 self.battle.save()
