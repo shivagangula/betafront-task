@@ -64,7 +64,7 @@ Before we begin, please ensure that **Docker** is installed on your machine. If 
 
 ## Postman Collection
 
-You can find the Postman collection file [here]("./docs/Betafront.pc.json"), which includes pre-configured API requests to interact with the Pokémon Battle Simulation backend. After importing the collection into Postman, you will be ready to send requests and enjoy the battles!
+You can find the Postman collection file [here]("./docs/Betafront.pc.json"),or in this repo /doc/Betafront.pc.json which includes pre-configured API requests to interact with the Pokémon Battle Simulation backend. After importing the collection into Postman, you will be ready to send requests and enjoy the battles!
 
 ## UML Daigram
 ![My Image](./docs/uml_class.png)
